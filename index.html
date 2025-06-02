@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Full Snack Engineer</title>
+  </head>
+  <body>
+    <h1>Websocket Example</h1>
+  </body>
+  <script>
+    const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+    const ws = new WebSocket(`${proto}://${window.location.host}`)
+
+    ws.onopen = function () {
+      ws.send('Hello Server!')
+    }
+
+    ws.onmessage = function (event) {
+      console.log(event.data)
+    }
+
+    ws.onclose = function () {
+      console.log('Disconnected from server')
+    }
+  </script>
+</html>
